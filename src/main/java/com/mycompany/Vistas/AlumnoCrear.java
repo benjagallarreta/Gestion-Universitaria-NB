@@ -4,6 +4,8 @@
  */
 package com.mycompany.Vistas;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author benja
@@ -27,7 +29,7 @@ public class AlumnoCrear extends javax.swing.JPanel {
     private void initComponents() {
 
         jSeparator1 = new javax.swing.JSeparator();
-        jPanel1 = new javax.swing.JPanel();
+        Content = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -40,28 +42,30 @@ public class AlumnoCrear extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMaximumSize(new java.awt.Dimension(800, 600));
+
+        Content.setBackground(new java.awt.Color(51, 51, 51));
+        Content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 54, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 146, -1));
+        Content.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 54, -1));
+        Content.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 146, -1));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Apellido");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 54, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 146, -1));
+        Content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 54, -1));
+        Content.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 146, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("DNI");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 54, -1));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 146, -1));
+        Content.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 54, -1));
+        Content.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 146, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Legajo");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 54, -1));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 146, -1));
+        Content.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 54, -1));
+        Content.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 146, -1));
 
         jButton1.setText("Guardar Cambios");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -69,25 +73,30 @@ public class AlumnoCrear extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, 146, 40));
+        Content.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 530, 146, 40));
 
         jButton4.setText("< Volver");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 87, 40));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        Content.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 87, 40));
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("CREAR ALUMNO");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
+        Content.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Content, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -95,8 +104,20 @@ public class AlumnoCrear extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        AlumnoPrincipal panel = new AlumnoPrincipal();
+        panel.setSize(800, 600);
+        panel.setLocation(0,0);
+        Content.removeAll();
+        Content.setLayout(new BorderLayout());
+        Content.add(panel, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Content;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -104,7 +125,6 @@ public class AlumnoCrear extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

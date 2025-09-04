@@ -141,9 +141,10 @@ public class CarreraPrincipal extends javax.swing.JPanel {
         panel.setSize(800, 600);
         panel.setLocation(0,0);
         Content.removeAll();
+        Content.setLayout(new BorderLayout());
         Content.add(panel, BorderLayout.CENTER);
         Content.revalidate();
-        Content.repaint();
+        Content.repaint();                      
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -151,6 +152,7 @@ public class CarreraPrincipal extends javax.swing.JPanel {
         panel.setSize(800, 600);
         panel.setLocation(0,0);
         Content.removeAll();
+        Content.setLayout(new BorderLayout());
         Content.add(panel, BorderLayout.CENTER);
         Content.revalidate();
         Content.repaint();

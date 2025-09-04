@@ -101,7 +101,7 @@ public class CarreraCrear extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        Content.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 100, 40));
+        Content.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 100, 40));
 
         Guardar.setText("Crear");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +109,7 @@ public class CarreraCrear extends javax.swing.JPanel {
                 GuardarActionPerformed(evt);
             }
         });
-        Content.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 530, 100, 50));
+        Content.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 100, 50));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Content.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 140, -1));
@@ -144,13 +144,14 @@ public class CarreraCrear extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Inicio panel = new Inicio();
+        CarreraPrincipal panel = new CarreraPrincipal();
         panel.setSize(800, 600);
         panel.setLocation(0,0);
         Content.removeAll();
+        Content.setLayout(new BorderLayout());
         Content.add(panel, BorderLayout.CENTER);
         Content.revalidate();
-        Content.repaint();
+        Content.repaint();                     
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed

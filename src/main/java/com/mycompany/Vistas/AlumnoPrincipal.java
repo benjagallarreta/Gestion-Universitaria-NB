@@ -37,6 +37,7 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setMaximumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         Content.setBackground(new java.awt.Color(51, 51, 51));
@@ -140,7 +141,14 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        InscribirAlumnoMateria panel = new InscribirAlumnoMateria();
+        panel.setSize(800, 600);
+        panel.setLocation(0,0);
+        Content.removeAll();
+        Content.setLayout(new BorderLayout());
+        Content.add(panel, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
