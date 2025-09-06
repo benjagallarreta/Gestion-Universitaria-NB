@@ -5,7 +5,7 @@
 package com.mycompany.Vistas;
 
 import java.awt.BorderLayout;
-
+import com.mycompany.Logica.GestionUniversitaria;
 /**
  *
  * @author migue
@@ -15,7 +15,10 @@ public class InscribirAlumnoMateria extends javax.swing.JPanel {
     /**
      * Creates new form InscribirAlumnoMateria2
      */
-    public InscribirAlumnoMateria() {
+    
+    GestionUniversitaria gu;
+    public InscribirAlumnoMateria(GestionUniversitaria GU) {
+        this.gu = gu;
         initComponents();
     }
 
@@ -124,7 +127,7 @@ public class InscribirAlumnoMateria extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        AlumnoPrincipal panel = new AlumnoPrincipal();
+        AlumnoPrincipal panel = new AlumnoPrincipal(gu);
         panel.setSize(800, 600);
         panel.setLocation(0,0);
         Content.removeAll();

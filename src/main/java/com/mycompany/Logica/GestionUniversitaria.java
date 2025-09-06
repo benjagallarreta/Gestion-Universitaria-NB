@@ -16,7 +16,11 @@ public class GestionUniversitaria {
         int key = alumno.getLegajo();
         alumnos.put(key,alumno); // HashMap.put(key,object); 
     }
-    
+
+    public ArrayList<Alumno> getAlumnos() {
+        return new ArrayList<>(alumnos.values());
+    }
+
 
     public void agregarCarrera(Carrera carrera) {
         carreras.add(carrera);
@@ -32,6 +36,10 @@ public class GestionUniversitaria {
             } 
         }
         return null;
+    }
+    
+    public ArrayList getCarreras() {
+        return carreras;
     }
 
     public void inscribirCarrera(Alumno alumno, Carrera carrera) {

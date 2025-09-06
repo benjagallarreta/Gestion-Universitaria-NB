@@ -15,6 +15,7 @@ com\mycompany\Vistas\CarreraCrear$4.class
 com\mycompany\Vistas\MateriaCrear$1.class
 com\mycompany\Logica\Materia.class
 com\mycompany\Logica\PlanD.class
+com\mycompany\Vistas\VistaPrincipal$1.class
 com\mycompany\Vistas\InscribirAlumnoCarrera.class
 com\mycompany\Vistas\InscribirAlumnoCarrera$1.class
 com\mycompany\Vistas\MateriaCrear$3.class
@@ -48,4 +49,5 @@ com\mycompany\Vistas\MateriaCrear$2.class
 com\mycompany\Vistas\MateriaCrear$8.class
 com\mycompany\Logica\PlanB.class
 com\mycompany\Logica\StrategyPlanEstudio.class
+com\mycompany\Vistas\CarreraCrear$5.class
 com\mycompany\Vistas\InscribirAlumnoMateria$2.class

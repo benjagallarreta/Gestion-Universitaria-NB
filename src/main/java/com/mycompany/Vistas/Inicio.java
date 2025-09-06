@@ -5,18 +5,15 @@
 package com.mycompany.Vistas;
 
 import java.awt.BorderLayout;
+import com.mycompany.Logica.GestionUniversitaria;
 
-/**
- *
- * @author migue
- */
 public class Inicio extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Inicio
-     */
-    public Inicio() {
+    GestionUniversitaria GU;
+    
+    public Inicio(GestionUniversitaria GU) {
         initComponents();
+        this.GU = GU;
     }
 
     /**
@@ -106,7 +103,7 @@ public class Inicio extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AlumnoPrincipal panelAlumno = new AlumnoPrincipal();
+        AlumnoPrincipal panelAlumno = new AlumnoPrincipal(GU);
         panelAlumno.setSize(800, 600);
         panelAlumno.setLocation(0,0);
         Content.removeAll();
@@ -117,7 +114,7 @@ public class Inicio extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CarreraPrincipal panelCarrera = new CarreraPrincipal();
+        CarreraPrincipal panelCarrera = new CarreraPrincipal(GU);
         panelCarrera.setSize(800, 600);
         panelCarrera.setLocation(0,0);
         Content.removeAll();
@@ -128,7 +125,7 @@ public class Inicio extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        MateriaCrear panelMateria = new MateriaCrear();
+        MateriaCrear panelMateria = new MateriaCrear(GU);
         panelMateria.setSize(800, 600);
         panelMateria.setLocation(0,0);
         Content.removeAll();

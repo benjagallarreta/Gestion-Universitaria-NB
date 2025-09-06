@@ -5,20 +5,27 @@
 package com.mycompany.Vistas;
 
 import java.awt.BorderLayout;
-
+import com.mycompany.Logica.GestionUniversitaria;
+import com.mycompany.Logica.Alumno;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author migue
  */
 public class AlumnoPrincipal extends javax.swing.JPanel {
 
+    GestionUniversitaria gu;
+    Alumno alumno;
     /**
      * Creates new form PanelAlumnoPrincipal
      */
-    public AlumnoPrincipal() {
+    public AlumnoPrincipal(GestionUniversitaria gu) {
+        this.gu = gu;
         initComponents();
+        cargarTabla();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -140,8 +147,28 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cargarTabla() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(new String[]{"Nombre", "Apellido", "DNI", "Legajo", "Carrera"});
+
+        // 👉 acá uso gu.getAlumnos()
+        ArrayList<Alumno> listaAlumnos = gu.getAlumnos();
+        for (Alumno alumno : listaAlumnos) {
+            model.addRow(new Object[]{
+                alumno.getNombre(),
+                alumno.getApellido(),
+                alumno.getDNI(),
+                alumno.getLegajo(),
+                alumno.getCarreraInscripta() != null ? alumno.getCarreraInscripta().getNombre() : "Sin carrera"
+            });
+        }
+
+        jTable1.setModel(model);
+    }
+
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        InscribirAlumnoMateria panel = new InscribirAlumnoMateria();
+        InscribirAlumnoMateria panel = new InscribirAlumnoMateria(gu);
         panel.setSize(800, 600);
         panel.setLocation(0,0);
         Content.removeAll();
@@ -152,7 +179,7 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Inicio panel = new Inicio();
+        Inicio panel = new Inicio(gu);
         panel.setSize(800, 600);
         panel.setLocation(0,0);
         Content.removeAll();
@@ -163,7 +190,7 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AlumnoCrear panel = new AlumnoCrear();
+        AlumnoCrear panel = new AlumnoCrear(gu);
         panel.setSize(800, 600);
         panel.setLocation(0,0);
         Content.removeAll();

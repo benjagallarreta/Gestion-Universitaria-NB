@@ -16,7 +16,6 @@ public class Carrera {
         this.alumnosContenidos = new ArrayList<>();
     }
 
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

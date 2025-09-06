@@ -4,19 +4,19 @@
  */
 package com.mycompany.Vistas;
 
+import com.mycompany.Logica.Carrera;
 import java.awt.BorderLayout;
+import com.mycompany.Logica.GestionUniversitaria;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author migue
- */
 public class CarreraPrincipal extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PanelCarreraPrincipal
-     */
-    public CarreraPrincipal() {
+    GestionUniversitaria GU;
+    public CarreraPrincipal(GestionUniversitaria GU) {
         initComponents();
+        this.GU = GU;
+        cargarTabla();
     }
 
     /**
@@ -136,8 +136,28 @@ public class CarreraPrincipal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cargarTabla() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(new String[]{
+            "Nombre", "Cuatrimestres Totales", "Materias", "Alumnos"
+        });
+
+        ArrayList<Carrera> listaCarreras = GU.getCarreras();
+        for (Carrera carrera : listaCarreras) {
+            model.addRow(new Object[]{
+            carrera.getNombre(),
+            carrera.getCuatrimestresTotales(),
+            carrera.getMateriasString(),
+            carrera.getAlumnosString()
+        });
+        }   
+
+        jTable1.setModel(model);
+    }
+    
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Inicio panel = new Inicio();
+        Inicio panel = new Inicio(GU);
         panel.setSize(800, 600);
         panel.setLocation(0,0);
         Content.removeAll();
@@ -148,7 +168,7 @@ public class CarreraPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CarreraCrear panel = new CarreraCrear();
+        CarreraCrear panel = new CarreraCrear(GU);
         panel.setSize(800, 600);
         panel.setLocation(0,0);
         Content.removeAll();
