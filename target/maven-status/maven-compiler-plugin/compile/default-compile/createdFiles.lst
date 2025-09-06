@@ -20,6 +20,7 @@ com\mycompany\Vistas\InscribirAlumnoCarrera.class
 com\mycompany\Vistas\InscribirAlumnoCarrera$1.class
 com\mycompany\Vistas\MateriaCrear$3.class
 com\mycompany\Logica\Main.class
+com\mycompany\Vistas\AlumnoCrear$3.class
 com\mycompany\Logica\PlanA.class
 com\mycompany\Vistas\AlumnoPrincipal$2.class
 com\mycompany\Vistas\MateriaCrear$7.class

@@ -73,7 +73,16 @@ public class Carrera {
         }
         return nombres.toString(); 
     }
-
+    
+    public Materia buscarMateria(String nombre){
+        for (Materia materia: materiasContenidas){
+              if (materia.getNombre().equals(nombre)){
+                  return materia;
+              }
+        }
+    return null;
+    }
+    
     public void getCarrera(Carrera carrera) {
         System.out.println();
         System.out.println("Informacion de la Carrera:");

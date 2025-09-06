@@ -6,6 +6,9 @@ package com.mycompany.Vistas;
 
 import java.awt.BorderLayout;
 import com.mycompany.Logica.*;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author migue
@@ -18,6 +21,8 @@ public class InscribirAlumnoMateria extends javax.swing.JPanel {
         this.gu = gu;
         this.alumno=alumno;
         initComponents();
+        cargarHistoriaAcademica();
+        cargarMateriaDeLaCarrera();
     }
 
     /**
@@ -34,9 +39,9 @@ public class InscribirAlumnoMateria extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         Volver = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        MateriaDeLaCarrera = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        HistoriaAcademica = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -65,7 +70,7 @@ public class InscribirAlumnoMateria extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        MateriaDeLaCarrera.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -76,9 +81,9 @@ public class InscribirAlumnoMateria extends javax.swing.JPanel {
                 "Materia", "cuatrimestre", "Optativa"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(MateriaDeLaCarrera);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        HistoriaAcademica.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -89,7 +94,7 @@ public class InscribirAlumnoMateria extends javax.swing.JPanel {
                 "Materia", "Estado"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(HistoriaAcademica);
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,9 +171,52 @@ public class InscribirAlumnoMateria extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Carrera carrera = alumno.getCarreraInscripta();
+        int selectedRow = MateriaDeLaCarrera.getSelectedRow();
+        if (selectedRow != -1) {
+            String materiaNombre = (String) MateriaDeLaCarrera.getValueAt(selectedRow, 0);
+            Materia materia = carrera.buscarMateria(materiaNombre);
+            carrera.InscribirMateria(materia, alumno);
+            JOptionPane.showMessageDialog(this, "Alumno inscrito en " + materiaNombre);
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona una materia para inscribir al alumno.", "Error", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+    
+        private void cargarHistoriaAcademica() {
+        // Obtener la historia académica del alumno
+        ArrayList<MateriaCursada> historia = alumno.getHistoriaAcademica();
+        DefaultTableModel model = (DefaultTableModel) HistoriaAcademica.getModel();
+        model.setRowCount(0); // Limpiar las filas previas
 
+        // Recorrer la historia académica y agregarla a la tabla
+        for (MateriaCursada materiaCursada : historia) {
+            model.addRow(new Object[]{
+                materiaCursada.getNombre(), // Nombre de la materia
+                materiaCursada.getEstado()  // Estado (cursando, regular, aprobado)
+            });
+        }
+    }
+    
+     private void cargarMateriaDeLaCarrera() {
+        // Obtener la carrera del alumno
+        Carrera carrera = alumno.getCarreraInscripta(); // Asumiendo que la carrera está asignada
+        if (carrera != null) {
+            DefaultTableModel model = (DefaultTableModel) MateriaDeLaCarrera.getModel();
+            model.setRowCount(0); // Limpiar las filas previas
+            // Obtener las materias de la carrera
+            ArrayList<Materia> materias = carrera.getMateriasContenidas();
+            // Recorrer las materias y agregarlas a la tabla
+            for (Materia materia : materias) {
+                model.addRow(new Object[]{
+                    materia.getNombre(),       // Nombre de la materia
+                    materia.getCuatrimestre(), // Cuatrimestre
+                    materia.getTipo() // Optativa
+                });
+            }
+        }
+    }
+    
     private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
         AlumnoPrincipal panel = new AlumnoPrincipal(gu);
         panel.setSize(800, 600);
@@ -183,13 +231,13 @@ public class InscribirAlumnoMateria extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Content;
+    private javax.swing.JTable HistoriaAcademica;
+    private javax.swing.JTable MateriaDeLaCarrera;
     private javax.swing.JButton Volver;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
