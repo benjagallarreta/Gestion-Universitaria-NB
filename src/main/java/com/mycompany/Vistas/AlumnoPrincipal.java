@@ -5,9 +5,9 @@
 package com.mycompany.Vistas;
 
 import java.awt.BorderLayout;
-import com.mycompany.Logica.GestionUniversitaria;
-import com.mycompany.Logica.Alumno;
+import com.mycompany.Logica.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -36,23 +36,23 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
     private void initComponents() {
 
         Content = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        InscribirAMateriaBoton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaDeAlumnos = new javax.swing.JTable();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         Content.setBackground(new java.awt.Color(51, 51, 51));
 
-        jButton1.setText("Inscribir a Materias");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        InscribirAMateriaBoton.setText("Inscribir a Materias");
+        InscribirAMateriaBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                InscribirAMateriaBotonActionPerformed(evt);
             }
         });
 
@@ -76,7 +76,7 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("INFORMACION DE LOS ALUMNOS");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaDeAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -87,40 +87,45 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
                 "Nombre", "Apellido", "DNI", "Legajo", "Carrera"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaDeAlumnos);
 
         javax.swing.GroupLayout ContentLayout = new javax.swing.GroupLayout(Content);
         Content.setLayout(ContentLayout);
         ContentLayout.setHorizontalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContentLayout.createSequentialGroup()
-                .addGap(330, 330, 330)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(ContentLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(ContentLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ContentLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(InscribirAMateriaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentLayout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         ContentLayout.setVerticalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContentLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InscribirAMateriaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
@@ -129,7 +134,7 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 806, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -138,7 +143,7 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGap(0, 617, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -163,20 +168,38 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
             });
         }
 
-        jTable1.setModel(model);
+        TablaDeAlumnos.setModel(model);
     }
 
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        InscribirAlumnoMateria panel = new InscribirAlumnoMateria(gu);
-        panel.setSize(800, 600);
-        panel.setLocation(0,0);
-        Content.removeAll();
-        Content.setLayout(new BorderLayout());
-        Content.add(panel, BorderLayout.CENTER);
-        Content.revalidate();
-        Content.repaint();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void InscribirAMateriaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InscribirAMateriaBotonActionPerformed
+
+        // Obtener la fila seleccionada en la tabla
+        int selectedRow = TablaDeAlumnos.getSelectedRow();
+        if (selectedRow != -1) { // Verificar si hay una fila seleccionada
+            // Obtener el DNI del alumno desde la columna correspondiente (índice 2 en este caso)
+            int dni = Integer.parseInt((String) TablaDeAlumnos.getValueAt(selectedRow, 2));
+            // Buscar al alumno en el sistema
+            Alumno alumnoSeleccionado = gu.buscarAlumno(dni);
+            if (alumnoSeleccionado != null) {
+                // Si se encuentra el alumno, proceder con la inscripción
+                InscribirAlumnoMateria panel = new InscribirAlumnoMateria(gu, alumnoSeleccionado);
+                panel.setSize(800, 600);
+                panel.setLocation(0, 0);
+                Content.removeAll();
+                Content.setLayout(new BorderLayout());
+                Content.add(panel, BorderLayout.CENTER);
+                Content.revalidate();
+                Content.repaint();
+            } else {
+                // Si no se encuentra el alumno, mostrar un mensaje de error o advertencia
+                JOptionPane.showMessageDialog(this, "Alumno no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            // Si no se ha seleccionado ninguna fila, mostrar un mensaje
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un alumno de la tabla.", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_InscribirAMateriaBotonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Inicio panel = new Inicio(gu);
@@ -203,12 +226,12 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Content;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton InscribirAMateriaBoton;
+    private javax.swing.JTable TablaDeAlumnos;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
