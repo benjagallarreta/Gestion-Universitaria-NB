@@ -139,7 +139,7 @@ public class CarreraPrincipal extends javax.swing.JPanel {
     private void cargarTabla() {
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{
-            "Nombre", "Cuatrimestres Totales", "Materias", "Alumnos"
+            "Nombre", "Cuatrimestres Totales", "Plan de Estudio", "Materias", "Alumnos Inscriptos"
         });
 
         ArrayList<Carrera> listaCarreras = GU.getCarreras();
@@ -147,6 +147,7 @@ public class CarreraPrincipal extends javax.swing.JPanel {
             model.addRow(new Object[]{
             carrera.getNombre(),
             carrera.getCuatrimestresTotales(),
+            carrera.getPlanEstudio(),
             carrera.getMateriasString(),
             carrera.getAlumnosString()
         });
