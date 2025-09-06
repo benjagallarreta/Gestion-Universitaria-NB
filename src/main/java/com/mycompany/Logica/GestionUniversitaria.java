@@ -38,6 +38,10 @@ public class GestionUniversitaria {
         return null;
     }
     
+    public Alumno buscarAlumno(int DNI){
+        return alumnos.get(DNI);
+    }
+    
     public ArrayList getCarreras() {
         return carreras;
     }
