@@ -106,11 +106,11 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
                         .addGap(50, 50, 50)
                         .addComponent(InscribirAMateriaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ContentLayout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ContentLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentLayout.createSequentialGroup()
+                        .addGap(287, 287, 287)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         ContentLayout.setVerticalGroup(
@@ -173,16 +173,11 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
 
     
     private void InscribirAMateriaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InscribirAMateriaBotonActionPerformed
-
-        // Obtener la fila seleccionada en la tabla
         int selectedRow = TablaDeAlumnos.getSelectedRow();
-        if (selectedRow != -1) { // Verificar si hay una fila seleccionada
-            // Obtener el DNI del alumno desde la columna correspondiente (índice 2 en este caso)
-            int dni = Integer.parseInt((String) TablaDeAlumnos.getValueAt(selectedRow, 2));
-            // Buscar al alumno en el sistema
+        if (selectedRow != -1) { 
+            Integer dni = (Integer) TablaDeAlumnos.getValueAt(selectedRow, 2); 
             Alumno alumnoSeleccionado = gu.buscarAlumno(dni);
             if (alumnoSeleccionado != null) {
-                // Si se encuentra el alumno, proceder con la inscripción
                 InscribirAlumnoMateria panel = new InscribirAlumnoMateria(gu, alumnoSeleccionado);
                 panel.setSize(800, 600);
                 panel.setLocation(0, 0);
@@ -192,11 +187,9 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
                 Content.revalidate();
                 Content.repaint();
             } else {
-                // Si no se encuentra el alumno, mostrar un mensaje de error o advertencia
                 JOptionPane.showMessageDialog(this, "Alumno no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            // Si no se ha seleccionado ninguna fila, mostrar un mensaje
             JOptionPane.showMessageDialog(this, "Por favor, seleccione un alumno de la tabla.", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_InscribirAMateriaBotonActionPerformed
@@ -213,14 +206,24 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AlumnoCrear panel = new AlumnoCrear(gu);
-        panel.setSize(800, 600);
-        panel.setLocation(0,0);
-        Content.removeAll();
-        Content.setLayout(new BorderLayout());
-        Content.add(panel, BorderLayout.CENTER);
-        Content.revalidate();
-        Content.repaint();
+        // Obtener las carreras desde gu
+        ArrayList<Carrera> listaCarreras = gu.getCarreras();
+
+        // Verificar si la lista de carreras es nula o vacía
+        if (listaCarreras == null || listaCarreras.isEmpty()) {
+            // Mostrar un mensaje de advertencia si no hay carreras
+            JOptionPane.showMessageDialog(this, "No existen carreras para cargar alumnos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        } else {
+            // Si existen carreras, proceder a crear el panel de alumno
+            AlumnoCrear panel = new AlumnoCrear(gu);
+            panel.setSize(800, 600);
+            panel.setLocation(0, 0);
+            Content.removeAll();
+            Content.setLayout(new BorderLayout());
+            Content.add(panel, BorderLayout.CENTER);
+            Content.revalidate();
+            Content.repaint();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

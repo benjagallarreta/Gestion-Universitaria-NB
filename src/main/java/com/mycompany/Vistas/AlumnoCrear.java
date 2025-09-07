@@ -4,9 +4,9 @@
  */
 package com.mycompany.Vistas;
 
-import com.mycompany.Logica.Alumno;
+import com.mycompany.Logica.*;
 import java.awt.BorderLayout;
-import com.mycompany.Logica.GestionUniversitaria;
+import java.util.ArrayList;
 /**
  *
  * @author benja
@@ -18,6 +18,7 @@ public class AlumnoCrear extends javax.swing.JPanel {
     public AlumnoCrear(GestionUniversitaria gu) {
         this.gu=gu;
         initComponents();
+        cargarCarreras();
     }
     
     @SuppressWarnings("unchecked")
@@ -37,6 +38,8 @@ public class AlumnoCrear extends javax.swing.JPanel {
         GuardarCambiosBoton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
 
@@ -59,8 +62,8 @@ public class AlumnoCrear extends javax.swing.JPanel {
         Content.add(DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 146, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Legajo");
-        Content.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 54, -1));
+        jLabel4.setText("Carerra");
+        Content.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 54, -1));
         Content.add(Legajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 146, -1));
 
         GuardarCambiosBoton.setText("Guardar Cambios");
@@ -84,6 +87,17 @@ public class AlumnoCrear extends javax.swing.JPanel {
         jLabel6.setText("CREAR ALUMNO");
         Content.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
 
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        Content.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 170, -1));
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Legajo");
+        Content.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 54, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,6 +110,14 @@ public class AlumnoCrear extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cargarCarreras() {
+        ArrayList<Carrera> listaCarreras = gu.getCarreras();
+        jComboBox1.removeAllItems();
+        for (Carrera carrera : listaCarreras) {
+            jComboBox1.addItem(carrera.getNombre()); // Agrega el nombre de la carrera
+        }
+    }
+    
     private void GuardarCambiosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarCambiosBotonActionPerformed
         Alumno alumno = new Alumno();
         alumno.setNombre( Nombre.getText());
@@ -117,6 +139,10 @@ public class AlumnoCrear extends javax.swing.JPanel {
         Content.repaint();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Apellido;
     private javax.swing.JPanel Content;
@@ -125,10 +151,12 @@ public class AlumnoCrear extends javax.swing.JPanel {
     private javax.swing.JTextField Legajo;
     private javax.swing.JTextField Nombre;
     private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
