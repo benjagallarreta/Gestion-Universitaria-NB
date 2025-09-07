@@ -14,14 +14,17 @@ public class Main {
         
         Alumno a1 = new Alumno();
         a1.setNombre("benja");
-        GU.validarAlumno(a1);
         
         Carrera c1 = new Carrera();
         c1.setNombre("Cocina Criolla");
         c1.setCuatrimestresTotales(1);
         StrategyPlanEstudio PlanA = new PlanA(); 
         c1.setPlanEstudio(PlanA);
+        
+        
         GU.agregarCarrera(c1);
+        a1.setCarrera(c1);
+        GU.validarAlumno(a1);
         
         MostrarInterfaz(GU);
         
