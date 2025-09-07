@@ -78,12 +78,12 @@ public class GestionUniversitaria {
         System.out.println("se agrego la materia: "+materia.getNombre()+" a la carrera: "+carrera.getNombre());
     }    
     
-    public static void verificarFinalizacion(Alumno alumno) {
+    public boolean verificarFinalizacion(Alumno alumno) {
         for (MateriaCursada cursada : alumno.getHistoriaAcademica()) {
             if (cursada.getEstado() != MateriaCursada.Estado.aprobado) {
-                System.out.println("Hay al menos una materia desaprobada, el alumno no ha finalizado"); // Hay al menos una no aprobada
+                return false;       // Hay al menos una no aprobada
             }
         }
-        System.out.println("Todas las materias aprobadas, el alumno ha finalizado"); // Todas están aprobadas
+        return true;                // Todas están aprobadas
     }    
 }

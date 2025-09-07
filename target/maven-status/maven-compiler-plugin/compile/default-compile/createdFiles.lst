@@ -5,13 +5,11 @@ com\mycompany\Vistas\InscribirAlumnoMateria$1.class
 com\mycompany\Vistas\MateriaCrear.class
 com\mycompany\Vistas\VistaPrincipal.class
 com\mycompany\Logica\MateriaCursada.class
-com\mycompany\Vistas\AlumnoPrinicipal$1.class
 com\mycompany\Vistas\AlumnoPrincipal$3.class
 com\mycompany\Vistas\Inicio.class
 com\mycompany\Vistas\InscribirAlumnoMateria.class
 com\mycompany\Vistas\CarreraCrear$1.class
 com\mycompany\Logica\PlanC.class
-com\mycompany\Vistas\CarreraCrear$4.class
 com\mycompany\Vistas\MateriaCrear$1.class
 com\mycompany\Logica\Materia.class
 com\mycompany\Logica\PlanD.class
@@ -25,8 +23,6 @@ com\mycompany\Logica\PlanA.class
 com\mycompany\Vistas\AlumnoPrincipal$2.class
 com\mycompany\Vistas\MateriaCrear$7.class
 com\mycompany\Logica\MateriaCursada$Estado.class
-com\mycompany\Vistas\AlumnoPrinicipal.class
-com\mycompany\Vistas\Inicio$3.class
 com\mycompany\Logica\Alumno.class
 com\mycompany\Vistas\AlumnoCrear.class
 com\mycompany\Vistas\CarreraCrear$3.class
@@ -46,8 +42,7 @@ com\mycompany\Logica\Carrera.class
 com\mycompany\Vistas\CarreraCrear$2.class
 com\mycompany\Vistas\AlumnoCrear$2.class
 com\mycompany\Vistas\MateriaCrear$2.class
-com\mycompany\Vistas\MateriaCrear$8.class
 com\mycompany\Logica\PlanB.class
 com\mycompany\Logica\StrategyPlanEstudio.class
-com\mycompany\Vistas\CarreraCrear$5.class
+com\mycompany\Vistas\AlumnoPrincipal$4.class
 com\mycompany\Vistas\InscribirAlumnoMateria$2.class

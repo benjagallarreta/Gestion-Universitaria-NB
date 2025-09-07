@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.mycompany.Vistas;
 
 import java.awt.BorderLayout;
@@ -9,17 +5,12 @@ import com.mycompany.Logica.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author migue
- */
+
 public class AlumnoPrincipal extends javax.swing.JPanel {
 
     GestionUniversitaria gu;
     Alumno alumno;
-    /**
-     * Creates new form PanelAlumnoPrincipal
-     */
+    
     public AlumnoPrincipal(GestionUniversitaria gu) {
         this.gu = gu;
         initComponents();
@@ -39,7 +30,7 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
         InscribirAMateriaBoton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        VerificarVerificacionButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaDeAlumnos = new javax.swing.JTable();
@@ -70,7 +61,12 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setText("Verificar Finalización");
+        VerificarVerificacionButton.setText("Verificar Finalización");
+        VerificarVerificacionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerificarVerificacionButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 2, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,7 +96,7 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ContentLayout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VerificarVerificacionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
@@ -122,7 +118,7 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VerificarVerificacionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InscribirAMateriaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
@@ -193,7 +189,7 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Por favor, seleccione un alumno de la tabla.", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_InscribirAMateriaBotonActionPerformed
-
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Inicio panel = new Inicio(gu);
         panel.setSize(800, 600);
@@ -226,14 +222,30 @@ public class AlumnoPrincipal extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void VerificarVerificacionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerificarVerificacionButtonActionPerformed
+        boolean value = gu.verificarFinalizacion(alumno);
+        
+        int selectedRow = TablaDeAlumnos.getSelectedRow();
+        if (selectedRow != -1) { 
+            Integer dni = (Integer) TablaDeAlumnos.getValueAt(selectedRow, 2); 
+            Alumno alumnoSeleccionado = gu.buscarAlumno(dni);
+            gu.verificarFinalizacion(alumnoSeleccionado);
+            if (value) {
+              JOptionPane.showMessageDialog(this, "El Alumno ha finalizado la carrera!", "Error", JOptionPane.WARNING_MESSAGE);
+          } else {
+              JOptionPane.showMessageDialog(this, "El Alumno aun NO ha finalizado la carrera!", "Error", JOptionPane.WARNING_MESSAGE);
+          }
+        }
+    }//GEN-LAST:event_VerificarVerificacionButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Content;
     private javax.swing.JButton InscribirAMateriaBoton;
     private javax.swing.JTable TablaDeAlumnos;
+    private javax.swing.JButton VerificarVerificacionButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
