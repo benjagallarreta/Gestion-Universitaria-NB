@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.mycompany.Vistas;
 
 import java.awt.BorderLayout;
@@ -11,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class CarreraCrear extends javax.swing.JPanel {
 
-       GestionUniversitaria GU;
+    GestionUniversitaria GU;
     public CarreraCrear(GestionUniversitaria GU) {
         initComponents();
         this.GU = GU;
@@ -25,7 +21,6 @@ public class CarreraCrear extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         CarreraNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        AgregarMateriaButton = new javax.swing.JButton();
         PlanEstudioComboBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         VolverButton = new javax.swing.JButton();
@@ -42,16 +37,8 @@ public class CarreraCrear extends javax.swing.JPanel {
         Content.add(CarreraNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 146, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Plan de Estudio");
-        Content.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 90, -1));
-
-        AgregarMateriaButton.setText("Agregar Materia");
-        AgregarMateriaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarMateriaButtonActionPerformed(evt);
-            }
-        });
-        Content.add(AgregarMateriaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 350, -1));
+        jLabel4.setText("Tipo de Plan de Estudio");
+        Content.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 140, -1));
 
         PlanEstudioComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Plan A", "Plan B", "Plan C", "Plan D", "Plan E" }));
         PlanEstudioComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +46,7 @@ public class CarreraCrear extends javax.swing.JPanel {
                 PlanEstudioComboBoxActionPerformed(evt);
             }
         });
-        Content.add(PlanEstudioComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 140, -1));
+        Content.add(PlanEstudioComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 150, -1));
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,22 +61,22 @@ public class CarreraCrear extends javax.swing.JPanel {
                 VolverButtonActionPerformed(evt);
             }
         });
-        Content.add(VolverButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 100, 40));
+        Content.add(VolverButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 100, 40));
 
-        GuardarCambiosButton.setText("Guardar Cambios");
+        GuardarCambiosButton.setText("Crear Plan de Estudio");
         GuardarCambiosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardarCambiosButtonActionPerformed(evt);
             }
         });
-        Content.add(GuardarCambiosButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 500, 140, 50));
+        Content.add(GuardarCambiosButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, 160, 50));
 
         CuatrimestresComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cuatrimestre 1", "Cuatrimestre 2", "Cuatrimestre 3", "Cuatrimestre 4", "Cuatrimestre 5", "Cuatrimestre 6" }));
-        Content.add(CuatrimestresComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 140, -1));
+        Content.add(CuatrimestresComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 150, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cuatrimiestres Totales");
-        Content.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 120, -1));
+        Content.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 130, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,17 +91,6 @@ public class CarreraCrear extends javax.swing.JPanel {
             .addComponent(Content, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AgregarMateriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarMateriaButtonActionPerformed
-        MateriaCrear panel = new MateriaCrear(GU);
-        panel.setSize(800, 600);
-        panel.setLocation(0,0);
-        Content.removeAll();
-        Content.setLayout(new BorderLayout());
-        Content.add(panel, BorderLayout.CENTER);
-        Content.revalidate();
-        Content.repaint();         
-    }//GEN-LAST:event_AgregarMateriaButtonActionPerformed
 
     private void VolverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverButtonActionPerformed
         CarreraPrincipal panel = new CarreraPrincipal(GU);
@@ -152,11 +128,21 @@ public class CarreraCrear extends javax.swing.JPanel {
             // En caso de que no se seleccione un plan válido (aunque no debería pasar)
             JOptionPane.showMessageDialog(this, "Por favor, seleccione un plan de estudio válido.");
             return;
-               }
+          }
     }
 
     
     GU.getCarreras().add(carrera);
+    
+    
+        MateriaPrincipal panel = new MateriaPrincipal(GU,carrera);
+        panel.setSize(800, 600);
+        panel.setLocation(0,0);
+        Content.removeAll();
+        Content.setLayout(new BorderLayout());
+        Content.add(panel, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();      
     
  
     }//GEN-LAST:event_GuardarCambiosButtonActionPerformed
@@ -167,7 +153,6 @@ public class CarreraCrear extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AgregarMateriaButton;
     private javax.swing.JTextField CarreraNombre;
     private javax.swing.JPanel Content;
     private javax.swing.JComboBox<String> CuatrimestresComboBox;
