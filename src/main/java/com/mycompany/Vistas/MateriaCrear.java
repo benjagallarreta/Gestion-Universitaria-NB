@@ -9,9 +9,10 @@ public class MateriaCrear extends javax.swing.JPanel {
     Carrera carrera;
     Materia materia;
     
-    public MateriaCrear(GestionUniversitaria GU) {
+    public MateriaCrear(GestionUniversitaria GU,Carrera carrera) {
         initComponents();
         this.GU = GU;
+        this.carrera=carrera;
     }
 
     @SuppressWarnings("unchecked")
